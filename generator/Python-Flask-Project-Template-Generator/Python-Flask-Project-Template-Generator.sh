@@ -79,8 +79,8 @@ cat > layout.html << EOF
 
     
 <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -105,7 +105,31 @@ cat > layout.html << EOF
 
 <!-- Body -->
 
-  <  <body>
+  <body>
+
+  <!-- Navbar -->
+
+  <header>
+    <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Toggler" 
+              aria-controls="Toggler" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">DGL</a>
+          <div class="collapse navbar-collapse" id="Toggler">
+              <ul class="nav navbar-nav">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="contact.php">Contact</a></li>
+      </ul>
+      </div>
+  </div>
+</nav>
+  </header>
+
     
 <div class="col-lg-8 mx-auto p-3 py-md-5">
   <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
@@ -117,10 +141,11 @@ cat > layout.html << EOF
   
 <!-- Main -->
   <main>
+      <!-- Flask Body Block -->
       <div class="container-fluid">
-        <main role="main" class="mb-3">
+
             {% block body %} {% endblock %}
-        </main>
+    
     </div>
     <h1>Get started with Bootstrap</h1>
     <p class="fs-5 col-md-8">Quickly and easily get started with Bootstrap's compiled, production-ready files with this barebones example featuring some basic HTML and helpful links. Download all our examples to get started.</p>
@@ -153,6 +178,7 @@ cat > layout.html << EOF
       </div>
     </div>
   </main>
+
 <!-- Footer -->
 
   <footer class="border-top footer text-muted">
@@ -167,7 +193,8 @@ cat > layout.html << EOF
 </div>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
       
   </body>
