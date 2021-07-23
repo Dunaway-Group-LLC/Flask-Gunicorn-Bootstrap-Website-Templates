@@ -2,6 +2,8 @@
 #
 # # # AustinWay/Python-Flask-Project-Template-Generator.git
 #
+#TODO : 1. Convert this bash file to python 2. Extend to allow specification of pages to be generated 3. Extend to allow selection of "normal" or "hamburger" menu
+
 echo "Enter in name of Flask App: "
 read flask_app_name
 echo "Creating $flask_app_name"
@@ -66,7 +68,7 @@ touch layout.html
 cat > layout.html << EOF
 
 <!doctype html>
-<html lang="en">
+  <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,59 +80,57 @@ cat > layout.html << EOF
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
 
     
-<!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
-    </style>
+    }
+  </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-  </head>
+  
+  <!-- Custom styles for this template -->
+  <link href="starter-template.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
 
 <!-- Body -->
 
-  <body>
+<body>
 
   <!-- Navbar -->
 
   <header>
     <nav class="navbar navbar-light bg-light">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Toggler" 
-              aria-controls="Toggler" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="#">DGL</a>
-          <div class="collapse navbar-collapse" id="Toggler">
-              <ul class="nav navbar-nav">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="about.php">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="contact.php">Contact</a></li>
-      </ul>
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Toggler" 
+        aria-controls="Toggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">DGL</a>
+      <div class="collapse navbar-collapse" id="Toggler">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-  </div>
-</nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-    
+
 <div class="col-lg-8 mx-auto p-3 py-md-5">
   <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
     <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
@@ -139,13 +139,13 @@ cat > layout.html << EOF
     </a>
   </header>
   
-<!-- Main -->
+  <!-- Main -->
   <main>
-      <!-- Flask Body Block -->
-      <div class="container-fluid">
+    <!-- Flask Body Block -->
+    <div class="container-fluid">
 
-            {% block body %} {% endblock %}
-    
+      {% block body %} {% endblock %}
+      
     </div>
     <h1>Get started with Bootstrap</h1>
     <p class="fs-5 col-md-8">Quickly and easily get started with Bootstrap's compiled, production-ready files with this barebones example featuring some basic HTML and helpful links. Download all our examples to get started.</p>
@@ -179,25 +179,25 @@ cat > layout.html << EOF
     </div>
   </main>
 
-<!-- Footer -->
+  <!-- Footer -->
 
   <footer class="border-top footer text-muted">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm text-center">
-                    Dunaway Group LLC © <span id="year"></span>
-                </div>
-            </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm text-center">
+          Dunaway Group LLC © <span id="year"></span>
         </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-      
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
 </html>
 
 EOF
